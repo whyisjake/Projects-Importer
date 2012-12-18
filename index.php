@@ -82,7 +82,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
 		echo '<category domain="types" nicename="' . ent2ncr( make_dashed( $guide->type ) ) . '"><![CDATA[' . ent2ncr( $guide->type ) . ']]></category>';
 		echo '<wp:postmeta>';
 			echo '<wp:meta_key>Steps</wp:meta_key>';
-			echo '<wp:meta_value><![CDATA[' . serialize ( ent2ncr( esc_html( $guide->steps ) ) ) . ']]></wp:meta_value>';
+			echo '<wp:meta_value><![CDATA[' . serialize ( ent2ncr( $guide->steps ) ) . ']]></wp:meta_value>';
 		echo '</wp:postmeta>';
 
 		echo '<wp:postmeta>';
@@ -117,7 +117,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
 
 		echo '<wp:postmeta>';
 			echo '<wp:meta_key>Conclusion</wp:meta_key>';
-			echo '<wp:meta_value><![CDATA[' . ent2ncr( esc_html( $guide->conclusion ) ) . ']]></wp:meta_value>';
+			echo '<wp:meta_value><![CDATA[' . ent2ncr( wp_kses_post( $guide->conclusion ) ) . ']]></wp:meta_value>';
 		echo '</wp:postmeta>';
 
 		echo '<wp:postmeta>';
