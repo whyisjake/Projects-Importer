@@ -41,8 +41,12 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
 	<generator>http://wordpress.org/?v=3.5-RC1-22893</generator>
 
 <?php foreach ($projects as $project) {
+	include_once 'project-ids.php';
+	if ( in_array( $project->guideid, $ids ) ) {
+		break;
+	}
 	echo '<item>';
-		$project_url = 'http://makeprojects.com/api/1.0/guide/'.$project->guideid;
+		$project_url = 'http://makeprojects.com/api/0.1/guide/'.$project->guideid;
 		$json = file_get_contents($project_url);
 		//print_r($json);
 		$proj = json_decode($json);
