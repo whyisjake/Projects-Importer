@@ -42,7 +42,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
 
 <?php foreach ($projects as $project) {
 	echo '<item>';
-		$project_url = 'http://makeprojects.com/api/0.1/guide/'.$project->guideid;
+		$project_url = 'http://makeprojects.com/api/1.0/guide/'.$project->guideid;
 		$json = file_get_contents($project_url);
 		//print_r($json);
 		$proj = json_decode($json);
@@ -97,7 +97,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
 
 		echo '<wp:postmeta>';
 			echo '<wp:meta_key>Tools</wp:meta_key>';
-			echo '<wp:meta_value><![CDATA[' . serialize( ent2ncr( $guide->tools ) ) . ']]></wp:meta_value>';
+			echo '<wp:meta_value><![CDATA[' . serialize( ent2ncr( $guide->parts ) ) . ']]></wp:meta_value>';
 		echo '</wp:postmeta>';
 
 		echo '<wp:postmeta>';
